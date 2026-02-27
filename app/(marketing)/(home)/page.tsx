@@ -1,16 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import { LogoCloud } from '@/components/logo-cloud'
 import { Manifesto } from '@/app/(marketing)/(home)/sections/manifesto'
 import { PlatformFeatures } from '@/app/(marketing)/(home)/sections/platform-features'
 import { AnalyticsFeatures } from '@/app/(marketing)/(home)/sections/analytics-features'
-import { IntegrationsSection } from '@/app/(marketing)/(home)/sections/integrations-section'
 import { TestimonialsSection } from '@/app/(marketing)/(home)/sections/testimonials-section'
 import { CallToAction } from '@/components/call-to-action'
 import { Container } from '@/components/container'
+
+const INSTALL_URL = 'https://apps.shopify.com/store-clone'
 
 export default function Home() {
     return (
@@ -19,27 +20,11 @@ export default function Home() {
                 id="home"
                 className="overflow-hidden border-b [--color-border:var(--border-illustration)]">
                 <div className="relative">
-                    <div
-                        aria-hidden
-                        className="dither-md mask-x-from-65% mask-x-to-95% mask-y-from-75% pointer-events-none absolute -inset-x-12 -bottom-24 top-1/4 mt-auto 2xl:mx-auto 2xl:max-w-7xl">
-                        <div className="size-full">
-                            <Image
-                                src="https://res.cloudinary.com/dohqjvu9k/image/upload/v1759215689/grid-1-bg_byeo9b.webp"
-                                alt="tailark hero section background"
-                                className="size-full object-cover object-bottom brightness-125 contrast-75"
-                                width={1152}
-                                height={767}
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
-                                priority
-                                fetchPriority="high"
-                            />
-                        </div>
-                    </div>
                     <div className="relative mx-auto max-w-5xl px-6 pt-32 text-center sm:pt-44">
                         <div className="relative mx-auto max-w-3xl text-center">
                             <h1 className="text-foreground text-balance text-5xl font-semibold sm:text-6xl">
-                                Modern Solutions for Customer{' '}
-                                <span className="relative text-indigo-500">
+                                Clone Your Shopify Store{' '}
+                                <span className="relative text-emerald-500">
                                     <svg
                                         aria-hidden
                                         className="pointer-events-none absolute inset-x-0 -bottom-3 w-full"
@@ -59,25 +44,25 @@ export default function Home() {
                                                 x2="40"
                                                 y2="13"
                                                 gradientUnits="userSpaceOnUse">
-                                                <stop stopColor="var(--color-indigo-300)" />
+                                                <stop stopColor="var(--color-emerald-300)" />
                                                 <stop
                                                     offset="1"
-                                                    stopColor="var(--color-blue-200)"
+                                                    stopColor="var(--color-teal-200)"
                                                 />
                                             </linearGradient>
                                         </defs>
                                     </svg>
-                                    <span className="relative">Engagement</span>
+                                    <span className="relative">in Minutes</span>
                                 </span>
                             </h1>
-                            <p className="text-muted-foreground mb-9 mt-7 text-balance text-lg">Our comprehensive analytics and experimentation platform empowers your team to make data-driven decisions.</p>
+                            <p className="text-muted-foreground mb-9 mt-7 text-balance text-lg">Stop wasting hours manually recreating store settings. Automate your entire store duplication — products, customers, metafields, and more — with one click.</p>
                             <Button
                                 asChild
                                 size="lg"
-                                className="border-transparent px-4 text-sm shadow-xl shadow-indigo-950/30">
-                                <Link href="#">Start Testing for free</Link>
+                                className="border-transparent bg-emerald-500 hover:bg-emerald-600 px-6 text-sm shadow-xl shadow-emerald-950/30">
+                                <Link href={INSTALL_URL} target="_blank" rel="noopener">Install Now — It&apos;s Free</Link>
                             </Button>
-                            <span className="text-muted-foreground mt-3 block text-center text-sm">No credit card required!</span>
+                            <span className="text-muted-foreground mt-3 block text-center text-sm">Free on the Shopify App Store</span>
                         </div>
                     </div>
                     <Container className="bg-background **:data-[slot=content]:py-0 mt-8 sm:mt-16">
@@ -86,17 +71,12 @@ export default function Home() {
                             className="h-3 w-full bg-[repeating-linear-gradient(-45deg,var(--color-foreground),var(--color-foreground)_1px,transparent_1px,transparent_4px)] opacity-5"
                         />
                         <div className="-mx-12 -mt-4 px-12 pt-4">
-                            <div className="bg-background ring-foreground/5 p-1 shadow-2xl shadow-indigo-900/35 ring-1">
+                            <div className="bg-background ring-foreground/5 p-1 shadow-2xl shadow-emerald-900/35 ring-1">
                                 <div className="bg-background sm:aspect-3/2 relative origin-top overflow-hidden border-l-8 border-t-4 border-transparent">
-                                    <Image
+                                    <img
                                         className="object-top-left min-w-xl size-full object-cover"
-                                        src="https://res.cloudinary.com/dohqjvu9k/image/upload/v1757920810/circle_un3f39.png"
-                                        alt="Oxymor overview"
-                                        width={1152}
-                                        height={768}
-                                        priority
-                                        fetchPriority="high"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1152px"
+                                        src="https://cdn.shopify.com/app-store/listing_images/f7306f8e3904167213392a9a99fd1751/promotional_image/CPjg6Ijf_IoDEAE=.png"
+                                        alt="Store Clone Dashboard"
                                     />
                                 </div>
                             </div>
@@ -108,7 +88,6 @@ export default function Home() {
             <Manifesto />
             <PlatformFeatures />
             <AnalyticsFeatures />
-            <IntegrationsSection />
             <TestimonialsSection />
             <CallToAction />
         </>

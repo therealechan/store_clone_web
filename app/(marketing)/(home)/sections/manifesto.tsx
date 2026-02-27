@@ -1,76 +1,73 @@
-'use client'
-import { Plus, Minus } from 'lucide-react'
-import { motion } from 'motion/react'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 import { Container } from '@/components/container'
+import { Clock, AlertTriangle, Bug, Repeat, Zap, Database, Shield, RefreshCw, XCircle, CheckCircle } from 'lucide-react'
 
-export function Manifesto() {
-    const [isFull, setIsFull] = useState(false)
+export const Manifesto = () => {
     return (
-        <section>
-            <Container className="max-lg:**:data-[slot=content]:px-6 border-t-0">
-                <div
-                    data-state={isFull ? 'full' : 'collapsed'}
-                    className="relative mx-auto max-w-2xl">
-                    <motion.div
-                        className={cn('relative overflow-hidden', !isFull && 'mask-b-from-45%')}
-                        initial={{ height: '22rem' }}
-                        animate={{ height: isFull ? 'auto' : '22rem' }}
-                        exit={{ height: '22rem' }}>
-                        <div className="text-muted-foreground space-y-4 text-xl *:leading-relaxed md:text-2xl">
-                            <p>
-                                I’m honored to be with you today for your commencement from one of the <strong className="text-foreground font-medium">finest universities</strong> in the world. Truth be told, I <strong className="text-foreground font-medium">never graduated from college</strong>. And this is the closest I’ve ever gotten to a college graduation.
-                            </p>
-                            <p>
-                                Today I want to tell you <strong className="text-foreground font-medium">three stories</strong> from my life. That’s it. No big deal. Just <strong className="text-foreground font-medium">three stories</strong>.
-                            </p>
-                            <p>
-                                The first story is about <strong className="text-foreground font-medium">connecting the dots</strong>. I dropped out of <strong className="text-foreground font-medium">Reed College</strong> after the first six months, but then stayed around as a <strong className="text-foreground font-medium">drop-in</strong> for another 18 months or so before I really quit. So why’d I drop out?
-                            </p>
-                            <p>
-                                It started before I was born. My <strong className="text-foreground font-medium">biological mother</strong> was a young, unwed graduate student, and she decided to put me up for <strong className="text-foreground font-medium">adoption</strong>. She felt very strongly that I should be adopted by <strong className="text-foreground font-medium">college graduates</strong>, so everything was all set for me to be adopted at birth by a{' '}
-                                <strong className="text-foreground font-medium">lawyer and his wife</strong>.
-                            </p>
-                            <p>
-                                Except that when I popped out, they decided at the last minute that they really wanted a <strong className="text-foreground font-medium">girl</strong>. So my parents, who were on a <strong className="text-foreground font-medium">waiting list</strong>, got a call in the middle of the night asking, “We’ve got an <strong className="text-foreground font-medium">unexpected baby boy</strong>. Do you want him?” They said, “
-                                <strong className="text-foreground font-medium">Of course</strong>.”
-                            </p>
+        <section id="manifesto">
+            <Container>
+                <div className="mx-auto max-w-4xl text-center">
+                    <h2 className="text-foreground text-balance text-3xl font-semibold sm:text-4xl">
+                        The Old Way vs. The <span className="text-emerald-500">Store Clone</span> Way
+                    </h2>
+                    <p className="text-muted-foreground mt-4 text-balance">See why merchants are switching to automated store migration.</p>
+                </div>
+                <div className="mt-12 grid gap-8 md:grid-cols-2">
+                    {/* Old Way */}
+                    <div className="rounded-2xl border border-red-200/50 bg-red-50/30 p-8 dark:border-red-900/30 dark:bg-red-950/10">
+                        <div className="mb-6 flex items-center gap-3">
+                            <div className="rounded-lg bg-red-100 p-2 dark:bg-red-900/30">
+                                <XCircle className="size-6 text-red-500" />
+                            </div>
+                            <h3 className="text-xl font-semibold text-red-600 dark:text-red-400">Manual Migration</h3>
                         </div>
-                    </motion.div>
-                    <div className="group relative mt-6 w-fit">
-                        <CardDecorator className="group-hover:scale-115 border-primary size-2" />
-                        <Button
-                            onClick={() => setIsFull(!isFull)}
-                            className="flex rounded pr-2.5"
-                            variant="ghost"
-                            size="sm">
-                            <span>Read {isFull ? 'Less' : 'More'}</span>
-                            {isFull ? (
-                                <Minus
-                                    strokeWidth={2.5}
-                                    className="size-3.5! opacity-50 duration-300"
-                                />
-                            ) : (
-                                <Plus
-                                    strokeWidth={2.5}
-                                    className="size-3.5! opacity-50 duration-300 group-hover:rotate-90"
-                                />
-                            )}
-                        </Button>
+                        <ul className="space-y-4 text-muted-foreground">
+                            <li className="flex items-start gap-3">
+                                <Clock className="mt-0.5 size-5 shrink-0 text-red-400/60" />
+                                <span>Hours of copying products, collections, and pages one by one</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <AlertTriangle className="mt-0.5 size-5 shrink-0 text-red-400/60" />
+                                <span>Metafields and custom data lost in translation</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Bug className="mt-0.5 size-5 shrink-0 text-red-400/60" />
+                                <span>Human errors, missed settings, broken references</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Repeat className="mt-0.5 size-5 shrink-0 text-red-400/60" />
+                                <span>Repeat the whole process for every new store</span>
+                            </li>
+                        </ul>
+                    </div>
+                    {/* Store Clone Way */}
+                    <div className="rounded-2xl border border-emerald-200/50 bg-emerald-50/30 p-8 dark:border-emerald-900/30 dark:bg-emerald-950/10">
+                        <div className="mb-6 flex items-center gap-3">
+                            <div className="rounded-lg bg-emerald-100 p-2 dark:bg-emerald-900/30">
+                                <CheckCircle className="size-6 text-emerald-500" />
+                            </div>
+                            <h3 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">With Store Clone</h3>
+                        </div>
+                        <ul className="space-y-4 text-foreground/80">
+                            <li className="flex items-start gap-3">
+                                <Zap className="mt-0.5 size-5 shrink-0 text-emerald-500" />
+                                <span>Complete store duplication in minutes, not hours</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Database className="mt-0.5 size-5 shrink-0 text-emerald-500" />
+                                <span>Full metafield support preserves data integrity</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Shield className="mt-0.5 size-5 shrink-0 text-emerald-500" />
+                                <span>Automated process eliminates human error</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <RefreshCw className="mt-0.5 size-5 shrink-0 text-emerald-500" />
+                                <span>Auto-sync keeps stores updated automatically</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </Container>
         </section>
     )
 }
-
-const CardDecorator = ({ className }: { className?: string }) => (
-    <>
-        <span className={cn('border-primary rounded-tl-xs absolute -left-px -top-px block size-2 border-l border-t', className)}></span>
-        <span className={cn('border-primary rounded-tr-xs absolute -right-px -top-px block size-2 border-r border-t', className)}></span>
-        <span className={cn('border-primary rounded-bl-xs absolute -bottom-px -left-px block size-2 border-b border-l', className)}></span>
-        <span className={cn('border-primary rounded-br-xs absolute -bottom-px -right-px block size-2 border-b border-r', className)}></span>
-    </>
-)
